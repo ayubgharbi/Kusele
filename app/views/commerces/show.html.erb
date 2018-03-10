@@ -1,0 +1,19 @@
+<% if commerce_signed_in? %>
+	<li><%= link_to 'New product', new_commerce_product_path(@commerce) %></li> 
+<% end %>
+
+<% @products.each do |product| %>   
+    <div class="row">
+        <div class="col-md-2 col-sm-2 col-xs-2">
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-6">
+            <h3 class="food-title"><%= product.title %></h3>
+            <p class="food-description"><%= sanitize(product.description) %></p>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-4">
+            <p class="price">
+                <span class="food-price"><%= number_to_currency(product.price, unit: "") %> DH</span>
+            </p>
+        </div>
+    </div>
+<% end %>   
