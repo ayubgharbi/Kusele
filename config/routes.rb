@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'register/index'
+
+  get 'login/index'
+
   get 'welcome/index'
 
   get 'authentication/index'
@@ -19,4 +23,6 @@ Rails.application.routes.draw do
   root "welcome#index"
 
   get 'commerces/:id' => 'commerces#show'
+
+  get 'login/index'
 end
