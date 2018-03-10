@@ -1,0 +1,18 @@
+<p>User</p>
+<% if !commerce_signed_in?  %>
+<% if user_signed_in?  %>
+    <li><%= link_to 'Se  déconnecter', destroy_user_session_path, method: :delete %></li> 
+<% else %>
+    <li><%= link_to "Se connecter", new_user_session_path %></li>
+    <li><%= link_to "S'inscrire", new_user_registration_path %></li> 
+<% end %>
+<% end %>
+<p>Commerce</p>
+<% if !user_signed_in?  %>
+<% if commerce_signed_in? %>
+    <li><%= link_to 'Se  déconnecter', destroy_commerce_session_path, method: :delete %></li> 
+<% else %>
+    <li><%= link_to "Se connecter", new_commerce_session_path %></li>
+    <li><%= link_to "S'inscrire", new_commerce_registration_path %></li> 
+<% end %>
+<% end %>

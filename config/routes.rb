@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :commerces, path: 'commerces', controllers: { sessions: 'commerces/sessions' }
-  devise_for :users, path: 'users', controllers: { sessions: 'users/sessions' }
+  get 'welcome/index'
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'authentication/index'
+
+  devise_for :commerces, path: 'commerces', controllers: { sessions: 'commerces/sessions', registrations: 'commerces/registrations' }
+  devise_for :users, path: 'users', controllers: { sessions: 'users/sessions', registrations: 'users/registrations' }
+
+  root "welcome#index"
 end
