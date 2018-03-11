@@ -1,9 +1,15 @@
 <div class="container">
 
-<% if commerce_signed_in? %>
+<div class="row">
+    <div class="col-md-9">  
+    <% if commerce_signed_in? %>
     <%= link_to 'New product', new_commerce_product_path(@commerce) %>
 <% end %>
 <%= image_tag @commerce.logo.url(:large), class: "commerce-show-logo" %>
+<div class="rating">
+    <div class="star-rating" data-score= <%= @avg_review %> ></div>
+    <em class="reviews_length"><%= "(#{@reviews.length})" %></em>
+</div>
 <% @products.each do |product| %>   
     <div class="product">
     <div class="row">
@@ -24,5 +30,34 @@
     </div>
 </div> 
 <% end %>   
+        
+    </div>
+    <div class="col-md-3">
+        <% if @reviews.blank? %>
+            <h3>No reviews just yet, would you like to add the first!</h3>
+            <%= link_to "Write a review", new_commerce_review_path(@commerce) %>
+        <% else %>
+            <% @reviews.each do |review| %>
+                <div class="reviews">
+                    <div class="star-rating" data-score= <%= review.rating %> ></div>
+                    <p><%= review.comment %></p>
+                </div>
+            <% end %>
+        <% end %>
+    </div>
+</div>
+
 
 </div>
+
+<script>
+    $('.star-rating').raty({
+      path: '/assets/',
+      readOnly: true,
+      score: function() {
+        return $(this).attr('data-score');
+      }
+    });
+</script>
+
+

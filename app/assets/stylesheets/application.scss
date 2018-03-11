@@ -1037,7 +1037,7 @@ blockquote footer, blockquote small, blockquote .small {
 .counter .main_counter{}
 .counter .main_counter{}
 .single_left_counter_bg{
-    background: url(../images/cleftbg.png) no-repeat 100% 100%;
+    background: url(cleftbg.png) no-repeat 100% 100%;
     display: inline-block;
     max-width: 500px;
     float: left;
@@ -1144,6 +1144,10 @@ blockquote footer, blockquote small, blockquote .small {
 .footer{
     background: #fff;
     margin-top: 50px;   
+    &:hover {
+        text-decoration: none;
+        background: transparent !important;
+    };
 }
 
 .main_footer{
@@ -1171,7 +1175,7 @@ blockquote footer, blockquote small, blockquote .small {
 }
 .footer_socail a i{
     font-size:0.8125rem;
-    color: #797979;
+    color: $green;
     padding: 0px 10px;
 }
 
@@ -1420,8 +1424,7 @@ blockquote footer, blockquote small, blockquote .small {
 }
 
 .logo {
-	height: 60px;
-	width: 60px;
+	width: 70px;
 	position: relative;
 	bottom: 15px;
 }

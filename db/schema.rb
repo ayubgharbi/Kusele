@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180311021604) do
+ActiveRecord::Schema.define(version: 20180311044027) do
 
   create_table "commerces", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -57,6 +57,17 @@ ActiveRecord::Schema.define(version: 20180311021604) do
     t.integer "image_file_size"
     t.datetime "image_updated_at"
     t.index ["commerce_id"], name: "index_products_on_commerce_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "rating"
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "commerce_id"
+    t.index ["commerce_id"], name: "index_reviews_on_commerce_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

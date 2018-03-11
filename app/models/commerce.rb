@@ -6,6 +6,7 @@ class Commerce < ApplicationRecord
 
   validates :first_name, :last_name, :commerce_name, :address, :phone_number, :latitude, :longitude, :register_commerce, :logo, presence: true
   has_many :products
+  has_many :reviews
 
   	has_attached_file :logo, styles: { large: "600x600>" }, 
 		:path => ":rails_root/public/system/:logo/:id/:style/:filename",

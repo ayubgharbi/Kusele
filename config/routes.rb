@@ -13,7 +13,9 @@ Rails.application.routes.draw do
 
   resources :commerces do 
   	resources :products
+    resources :reviews
   end
+
 
   resources :products
 
