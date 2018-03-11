@@ -20,6 +20,8 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.3'
 gem 'paperclip', '~> 6.0'
 gem 'geocoder'
+gem 'omniauth-facebook'
+gem 'friendly_id', '~> 5.1'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

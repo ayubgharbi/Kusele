@@ -4,7 +4,7 @@ class CommercesController < ApplicationController
 		@commerces = Commerce.all
 	end
 	def show
-		@commerce = Commerce.find(params[:id])
+		@commerce = Commerce.friendly.find(params[:id])
 		@products = @commerce.products
 		@reviews = Review.where(commerce_id: @commerce.id).order("created_at DESC")
 

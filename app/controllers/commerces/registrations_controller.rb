@@ -29,11 +29,11 @@ class Commerces::RegistrationsController < Devise::RegistrationsController
 
   private
     def sign_up_params
-      params.require(:commerce).permit(:first_name, :last_name, :commerce_name, :email, :password, :password_confirmation, :address, :phone_number, :latitude, :longitude, :register_commerce, :logo, :image)
+      params.require(:commerce).permit(:first_name, :last_name, :commerce_name, :email, :password, :password_confirmation, :address, :phone_number, :latitude, :longitude, :register_commerce, :logo, :image, :slug)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def commerce_params
-      params.require(:commerce).permit(:first_name, :last_name, :commerce_name, :email, :password, :password_confirmation, :address, :phone_number, :latitude, :longitude, :register_commerce, :logo, :image)
+      params.require(:commerce).permit(:first_name, :last_name, :commerce_name, :email, :password, :password_confirmation, :address, :phone_number, :latitude, :longitude, :register_commerce, :logo, :image, :slug)
     end
 end

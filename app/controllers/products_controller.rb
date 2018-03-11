@@ -56,6 +56,6 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:title, :description, :price, :real_price, :last_date, :image).merge(commerce_id: current_commerce.id)
+      params.require(:product).permit(:title, :description, :price, :real_price, :last_date, :quantity, :image).merge(commerce_id: current_commerce.id)
     end
 end

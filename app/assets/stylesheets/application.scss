@@ -18,7 +18,6 @@
 @import "bootstrap";
 @import "font-awesome";
 
-
 $green: #87B335;
 /*
 Author: Bootstrapthemes
@@ -27,6 +26,12 @@ Author URI: http://bootstrapthemes.co
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+
+@font-face {
+    font-family: "HelveticaRoundedLTStd-Bd";
+    src: url(/assets/HelveticaRoundedLTStd-Bd.otf) format("truetype");
+}
+
 html,
 body {
     background-color: #fff;
@@ -327,13 +332,13 @@ Separator
     height: 10px;
     width: 127px;
     margin: 20px auto;
-    background: url(../images/separator.png) no-repeat;
+    background: url(separator.png) no-repeat;
 }
 .whiseparator {
     height: 10px;
     width: 127px;
     margin: 20px auto;
-    background: url(../images/whiseparator.png) no-repeat;
+    background: url(whiseparator.png) no-repeat;
 }
 .separator2 {
     height: 2px;
@@ -541,11 +546,11 @@ input::-ms-input-placeholder {
     z-index: 300;
     box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
     -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
-    background-color: $green;
+    background-color: #fff;
     -webkit-transition:all .3s;
     -moz-transition:all .3s;
     transition:all .3s;
-    height: 95px;
+    height: 80px;
         
 }
 
@@ -559,11 +564,11 @@ input::-ms-input-placeholder {
     z-index: 300;
     box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
     -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
-    background-color: $green;
+    background-color: #fff;
     -webkit-transition:all .3s;
     -moz-transition:all .3s;
     transition:all .3s;
-    height: 95px;
+    height: 80px;
 }
 .main_menu_bg .navbar-default {
     background-color: transparent; 
@@ -578,7 +583,7 @@ input::-ms-input-placeholder {
 
 .main_menu_bg .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus{
     color: #6135b3;
-    background: url(../images/selectmenu.png) no-repeat bottom center;
+    background: url(selectmenu.png) no-repeat bottom center;
     padding-bottom: 20px;
 
 }
@@ -588,7 +593,7 @@ input::-ms-input-placeholder {
     padding-bottom: 20px;
     text-transform: uppercase;
     font-size: 0.8rem;
-    color: #fff;
+    color: #3C472F;
     font-weight: bold;
 }
 .navbar-brand>img {
@@ -1162,7 +1167,7 @@ blockquote footer, blockquote small, blockquote .small {
     border-top:1px solid #ddd;
 }
 .copyright_text p{
-    color: #3C472F;
+    color: #6135b3;
     font-size:0.8125rem;
     line-height: 25px;
     padding:40px;
@@ -1170,11 +1175,11 @@ blockquote footer, blockquote small, blockquote .small {
 }
 .copyright_text p i{
     padding:0px 10px;
-    color: #3C472F;
+    color: #6135b3;
 }
 .copyright_text p a{
     padding:0px 10px;
-    color:#5e9a28;
+    color: #6135b3;
 }
 
 .footer_socail{
@@ -1183,7 +1188,7 @@ blockquote footer, blockquote small, blockquote .small {
 }
 .footer_socail a i{
     font-size:0.8125rem;
-    color: $green;
+    color: #3C472F;
     padding: 0px 10px;
 }
 
@@ -1432,9 +1437,9 @@ blockquote footer, blockquote small, blockquote .small {
 }
 
 .logo {
-	width: 70px;
+	height: 60px;
 	position: relative;
-	bottom: 15px;
+	bottom: 20px;
 }
 
 .green {
@@ -1446,7 +1451,7 @@ blockquote footer, blockquote small, blockquote .small {
     border-radius: 10px;
     border: 2px solid $green;
     color: #fff !important;
-    background: $green;
+    background: #6135b3;
     width: 180px;
     &:hover {
         background: #7e994c;
@@ -1597,6 +1602,10 @@ blockquote footer, blockquote small, blockquote .small {
 
 }
 
+.product-quantity {
+
+}
+
 .product-commerce-logo {
     width: 100px;
     height: 100px;
@@ -1605,6 +1614,7 @@ blockquote footer, blockquote small, blockquote .small {
 .commerce-show-logo {
     width: 150px;
     margin-bottom: 50px;
+    border: 3px solid #fff;
 }
 
 #map {
@@ -1615,4 +1625,69 @@ blockquote footer, blockquote small, blockquote .small {
 
 .bt {
     background: transparent !important;
+}
+
+
+.android-image1 {
+    height: 550px;
+    text-align: center;
+}
+
+.android-image2 {
+    height: 70px;
+    margin-bottom: 10px;
+    margin-right: 6px;
+}
+
+.appstore-image {
+    height: 70px;
+}
+
+.android-image {
+    height: 100px;
+}
+
+
+.android {
+    margin-bottom: 80px;
+}
+
+.commerce-background {
+    margin-bottom: 30px;
+}
+
+.link-svg {
+    height: 30px;
+}
+
+.btn-product{
+    margin-bottom: 30px;
+    text-align: right;
+    display: inherit;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+
+.logo-pa {
+    font-size: 30px;
+    color: #fff;
+}
+
+.welcome-kusele {
+    font-family: "HelveticaRoundedLTStd-Bd";
+    color: black;
+    margin-bottom: 100px;
+    margin-top: 80px;
+}
+
+.prochaine {
+    font-family: "HelveticaRoundedLTStd-Bd";
+    font-size: 18px;
+    margin-top: 20px;
+    margin-right: 30px;
+}
+
+.home-logo {
+    width: 150px;
+    height: 150px;
 }

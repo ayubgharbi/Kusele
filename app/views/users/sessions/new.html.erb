@@ -1,7 +1,8 @@
-<div class="container">
-<h2>Log in</h2>
+<div class="container text-center" style="margin-bottom: 110px;">
+<h2>se connecter</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "form-horizontal") do |f| %>
+  
   <div class="form-group">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
@@ -20,7 +21,7 @@
   <% end -%>
 
   <div class="actions">
-    <%= f.submit "Log in", class: "green-btn" %>
+    <%= f.submit "se connecter", class: "green-btn" %>
   </div>
 <% end %>
 </div>
