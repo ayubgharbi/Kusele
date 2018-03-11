@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :set_commerce
   before_action :set_review, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   def new
     @review = Review.new

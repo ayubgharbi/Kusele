@@ -1083,6 +1083,11 @@ blockquote footer, blockquote small, blockquote .small {
 .footer_widget{
     background: #fff;
     color:#223d61;
+    a {
+        &:hover {
+            background: transparent;
+        };
+    }
 }
 .footer_widget .main_widget{
     padding: 55px 15px 80px 15px; 
@@ -1440,7 +1445,7 @@ blockquote footer, blockquote small, blockquote .small {
     padding: 10px 20px 10px 20px;
     border-radius: 10px;
     border: 2px solid $green;
-    color: #fff;
+    color: #fff !important;
     background: $green;
     width: 180px;
     &:hover {
@@ -1608,3 +1613,6 @@ blockquote footer, blockquote small, blockquote .small {
     border-radius: 5px;
 }
 
+.bt {
+    background: transparent !important;
+}
