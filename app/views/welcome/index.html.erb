@@ -1,9 +1,29 @@
-<section id="home" class="home">
-    <div class="container">
-        <div class="row">
+
+<div class="container">
+    
+
+<% @products.each do |product| %>   
+<div class="product">
+    <div class="row">
+        <div class="col-md-2 col-sm-2 col-xs-2">
+            <%= image_tag product.image.url(:large), class: "product-image" %>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-6">
+            <h3 class="product-title"><%= product.title %></h3>
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-4">
+            <p class="price">
+                <span class="product-price"><%= number_to_currency(product.price, unit: "") %> DH</span>
+            </p>
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-4">
+            <%= image_tag product.commerce.logo.url(:large), class: "product-commerce-logo" %>
         </div>
     </div>
-</section>
+</div> 
+<% end %>  
+
+</div>
 
 
         <section id="contact" class="footer_widget">
@@ -29,18 +49,22 @@
 
                             <div class="col-sm-4 col-xs-12">
                                 <div class="single_widget wow fadeIn" data-wow-duration="800ms">
-                                    <h4 class="footer_title"></h4>
+                                    <h4 class="footer_title">Latest News</h4>
                                     <div class="separator4"></div>
 
-                                    <div class="footer_gellary">
-                                        <img src="assets/images/fg1.jpg" alt="" />
-                                        <img src="assets/images/fg2.jpg" alt="" />
-                                        <img src="assets/images/fg3.jpg" alt="" />
-                                        <img src="assets/images/fg4.jpg" alt="" />
-                                        <img src="assets/images/fg5.jpg" alt="" />
-                                        <img src="assets/images/fg6.jpg" alt="" />
-                                        <img src="assets/images/fg7.jpg" alt="" />
-                                        <img src="assets/images/fg8.jpg" alt="" />
+                                    <div class="footer_gellary" style="margin-top: 40px">
+                                        <%= image_tag "logo.png", class: "logo" %> 
+                                        <%= image_tag "logo.png", class: "logo" %> 
+                                        <%= image_tag "logo.png", class: "logo" %> 
+                                        <%= image_tag "logo.png", class: "logo" %> 
+                                        <%= image_tag "logo.png", class: "logo" %> 
+                                        <%= image_tag "logo.png", class: "logo" %> 
+                                        <%= image_tag "logo.png", class: "logo" %> 
+                                        <%= image_tag "logo.png", class: "logo" %> 
+                                        <%= image_tag "logo.png", class: "logo" %> 
+                                        <%= image_tag "logo.png", class: "logo" %> 
+                                        <%= image_tag "logo.png", class: "logo" %> 
+                                        <%= image_tag "logo.png", class: "logo" %> 
                                     </div>
                                 </div>
                             </div>

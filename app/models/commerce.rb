@@ -4,6 +4,16 @@ class Commerce < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  validates :first_name, :last_name, :commerce_name, :address, :phone_number, :latitude, :longitude, :register_commerce, presence: true
+  validates :first_name, :last_name, :commerce_name, :address, :phone_number, :latitude, :longitude, :register_commerce, :logo, presence: true
   has_many :products
+
+  	has_attached_file :logo, styles: { large: "600x600>" }, 
+		:path => ":rails_root/public/system/:logo/:id/:style/:filename",
+    	:url => "/system/:logo/:id/:style/:filename"
+  	validates_attachment_content_type :logo, content_type: /\Aimage\/.*\z/
+
+  	has_attached_file :image, styles: { large: "600x600>" }, 
+		:path => ":rails_root/public/system/:image/:id/:style/:filename",
+    	:url => "/system/:image/:id/:style/:filename"
+  	validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 end

@@ -541,7 +541,7 @@ input::-ms-input-placeholder {
     z-index: 300;
     box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
     -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
-    background-color: transparent;
+    background-color: $green;
     -webkit-transition:all .3s;
     -moz-transition:all .3s;
     transition:all .3s;
@@ -559,7 +559,7 @@ input::-ms-input-placeholder {
     z-index: 300;
     box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
     -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
-    background-color: transparent;
+    background-color: $green;
     -webkit-transition:all .3s;
     -moz-transition:all .3s;
     transition:all .3s;
@@ -572,12 +572,12 @@ input::-ms-input-placeholder {
     margin: 15px auto;
 }
 .navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus{
-    color: #87B335;
+    color: #6135b3;
 }
 .main_menu_bg .navbar {}
 
 .main_menu_bg .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus{
-    color: #87B335;
+    color: #6135b3;
     background: url(../images/selectmenu.png) no-repeat bottom center;
     padding-bottom: 20px;
 
@@ -588,7 +588,7 @@ input::-ms-input-placeholder {
     padding-bottom: 20px;
     text-transform: uppercase;
     font-size: 0.8rem;
-    color: #3C472F;
+    color: #fff;
     font-weight: bold;
 }
 .navbar-brand>img {
@@ -806,6 +806,7 @@ input::-ms-input-placeholder {
     height:35px;
     padding: .2rem;
     border:1px solid #ddd;
+    border-radius: 0px;
 }
 .main_mix_menu ul li.btn-primary {
     background-color: transparent;
@@ -1170,7 +1171,7 @@ blockquote footer, blockquote small, blockquote .small {
 }
 .footer_socail a i{
     font-size:0.8125rem;
-    color: #3C472F;
+    color: #797979;
     padding: 0px 10px;
 }
 
@@ -1427,4 +1428,169 @@ blockquote footer, blockquote small, blockquote .small {
 
 .green {
     color: $green;
+}
+
+.green-btn {
+    padding: 10px 20px 10px 20px;
+    border-radius: 10px;
+    border: 2px solid $green;
+    color: #fff;
+    background: $green;
+    width: 180px;
+    &:hover {
+        background: #7e994c;
+        color: #fff;
+    };
+}
+
+.commerce-logo {
+    width: 200px;
+    height: 200px;
+}
+
+/*-- gallery --*/
+.gallery {
+    padding: 5em 0;
+}
+.grid {
+    position: relative;
+    clear: both;
+    margin: 0 auto;
+    max-width: 1000px;
+    list-style: none;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.86);
+} 
+/* Common style */
+.grid {
+    position: relative; 
+    overflow: hidden;
+    margin: 10px 0;
+    height: auto;
+    text-align: center;
+    cursor: pointer;
+} 
+.grid img {
+    position: relative;
+    display: block;
+    width: 100%;
+    opacity: 0.8;
+}
+
+.grid .figcaption {
+    padding: 2em;
+    color:rgba(0, 0, 0, 0.5);
+    text-transform: capitalize;
+    font-size: 1.25em;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+} 
+.grid .figcaption,
+.grid .figcaption > a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; 
+}
+
+
+/* Anchor will cover the whole item by default */
+/* For some effects it will show as a button */
+.grid  .figcaption > a {
+    z-index: 1000;
+    text-indent: 200%;
+    white-space: nowrap;
+    font-size: 0;
+    opacity: 0;
+} 
+.grid p {
+    letter-spacing: 1px;
+    font-size: 68.5%;
+}
+/*-----------------*/
+/***** Apollo *****/
+/*-----------------*/ 
+.effect-apollo img {
+    opacity: 0.95;
+    -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+    transition: opacity 0.35s, transform 0.35s;
+    -webkit-transform: scale3d(1.05,1.05,1);
+    -moz-transform: scale3d(1.05,1.05,1);
+    -o-transform: scale3d(1.05,1.05,1);
+    -ms-transform: scale3d(1.05,1.05,1);
+    transform: scale3d(1.05,1.05,1);
+} 
+.effect-apollo .figcaption::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:rgba(0, 0, 0, 0.5);
+    content: '';
+    -webkit-transition: -webkit-transform 0.6s;
+    transition: transform 0.6s;
+    -webkit-transform: scale3d(1.9,1.4,1) rotate3d(0,0,1,45deg) translate3d(0,-100%,0);
+    transform: scale3d(1.9,1.4,1) rotate3d(0,0,1,45deg) translate3d(0,-100%,0);
+}
+.effect-apollo p {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    color: #fff;
+    margin: 3em;
+    padding: 0 1em;
+    border-right: 4px solid #fff;
+    text-align: right;
+    opacity: 0;
+    -webkit-transition: opacity 0.35s;
+    transition: opacity 0.35s;
+} 
+.effect-apollo:hover img { 
+    -webkit-transform: scale3d(1,1,1);
+    -moz-transform: scale3d(1,1,1);
+    -o-transform: scale3d(1,1,1);
+    -ms-transform: scale3d(1,1,1);
+    transform: scale3d(1,1,1);
+    opacity: 0.4;
+}
+.effect-apollo:hover .figcaption::before {
+    -webkit-transform: scale3d(1.9,1.4,1) rotate3d(0,0,1,45deg) translate3d(0,100%,0);
+    transform: scale3d(1.9,1.4,1) rotate3d(0,0,1,45deg) translate3d(0,100%,0);
+}
+.effect-apollo:hover p {
+    opacity: 1;
+    -webkit-transition-delay: 0.1s;
+    transition-delay: 0.1s;
+}
+/*-- //gallery --*/
+
+.product-image {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.product {
+    margin-bottom: 20px;
+}
+
+.product-price {
+    color: $green;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.product-title {
+
+}
+
+.product-commerce-logo {
+    width: 100px;
+    height: 100px;
+}
+
+.commerce-show-logo {
+    width: 150px
+
 }

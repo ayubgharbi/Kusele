@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180310174921) do
+ActiveRecord::Schema.define(version: 20180311021604) do
 
   create_table "commerces", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -33,6 +33,14 @@ ActiveRecord::Schema.define(version: 20180310174921) do
     t.float "latitude"
     t.float "longitude"
     t.string "commerce_name"
+    t.string "logo_file_name"
+    t.string "logo_content_type"
+    t.integer "logo_file_size"
+    t.datetime "logo_updated_at"
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
     t.index ["email"], name: "index_commerces_on_email", unique: true
     t.index ["reset_password_token"], name: "index_commerces_on_reset_password_token", unique: true
   end
@@ -44,6 +52,10 @@ ActiveRecord::Schema.define(version: 20180310174921) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "commerce_id"
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
     t.index ["commerce_id"], name: "index_products_on_commerce_id"
   end
 

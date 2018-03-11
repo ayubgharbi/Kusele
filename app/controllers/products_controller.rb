@@ -30,7 +30,7 @@ class ProductsController < ApplicationController
   def update
     respond_to do |format|
       if @product.update(product_params)
-        format.html { redirect_to @commerce }
+        format.html { redirect_to current_commerce }
       else
         format.html { render :edit }
       end
@@ -40,7 +40,7 @@ class ProductsController < ApplicationController
   def destroy
     @product.destroy
     respond_to do |format|
-      format.html { redirect_to @commerce }
+      format.html { redirect_to current_commerce }
     end
   end
 
@@ -56,6 +56,6 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:title, :description, :price).merge(commerce_id: current_commerce.id)
+      params.require(:product).permit(:title, :description, :price, :image).merge(commerce_id: current_commerce.id)
     end
 end

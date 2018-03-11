@@ -25,15 +25,24 @@
                                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
                                         <ul class="nav navbar-nav navbar-left">
-                                            <li><a href="#home">Home</a></li>
+                                            <li><%= link_to "Home", root_path %></li>
+                                            <li><%= link_to "Shops", commerces_path %></li>
                                             <li><a href="#service">What we do?</a></li>
-                                            <li><a href="#portfolio">Gallery</a></li>
-                                            <li><a href="#testimonial">testimonial</a></li>
-                                            <li><a href="#contact">Contact</a></li>
                                         </ul>
                                         <ul class="nav navbar-nav navbar-right">
-                                            <li><%= link_to "Sign Up", register_index_path %></li>
-                                            <li><%= link_to "Login", login_index_path %></li>
+                                            <% if !commerce_signed_in? && !user_signed_in? %>
+                                                <li><%= link_to "Sign Up", register_index_path %></li>
+                                                <li><%= link_to "Login", login_index_path %></li>
+                                            <% else %>
+                                                <% if user_signed_in? %>
+                                                <li><%= link_to "edit account", edit_user_registration_path %></li>
+                                                <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li> 
+                                                <% end %>
+                                                <% if commerce_signed_in? %>
+                                                <li><%= link_to "edit commerce", edit_commerce_registration_path %></li>
+                                                <li><%= link_to "Logout", destroy_commerce_session_path, method: :delete %></li> 
+                                                <% end %>
+                                            <% end %>
                                         </ul>
                                     </div>
 
