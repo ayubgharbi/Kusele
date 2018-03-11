@@ -1,14 +1,12 @@
 <div class="container text-center">
-	<h2>Sign Up</h2>
-
 	<div class="row">
 		<div class="col-md-6" style="border-right: 1px solid #ccc">
 			<h4 class="green">Commerce</h4>
-			<%= render "commerces/registrations/new" %>
+			<%= link_to "Sign Up", new_commerce_registration_path, class: "green-btn" %>
 		</div>
 		<div class="col-md-6">
 			<h4 class="green">User</h4>
-			<%= render "users/registrations/new" %>
+			<%= link_to "Sign Up", new_user_registration_path, class: "green-btn" %>
 		</div>
 	</div>	
 </div>

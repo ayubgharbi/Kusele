@@ -1,6 +1,5 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-  include Accessible
-
+  
   def update
   @user = User.find(current_user.id)
     respond_to do |format|
@@ -12,12 +11,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
-  end
+  end 
 
   protected
 
   def update_resource(resource, params)
-    resource.update_without_password(params)
+    # Require current password if user is trying to change password.
+    return super if params["password"]&.present?
+
+    # Allows user to update registration information without password.
+    resource.update_without_password(params.except("current_password"))
   end
 
 

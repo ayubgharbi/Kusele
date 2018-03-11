@@ -60,7 +60,7 @@ body {
     position: absolute;
     left: 50%;
     top: 50%;
-    background-image: url(../images/loading.gif);
+    background-image: url(loading1.gif);
     background-repeat: no-repeat;
     background-position: center;
     -moz-background-size: cover;
@@ -1144,10 +1144,13 @@ blockquote footer, blockquote small, blockquote .small {
 .footer{
     background: #fff;
     margin-top: 50px;   
+    a {
     &:hover {
         text-decoration: none;
         background: transparent !important;
-    };
+};    
+}
+
 }
 
 .main_footer{
@@ -1576,12 +1579,13 @@ blockquote footer, blockquote small, blockquote .small {
 
 .product {
     margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
 }
 
 .product-price {
     color: $green;
     font-size: 20px;
-    font-weight: bold;
 }
 
 .product-title {
@@ -1594,6 +1598,13 @@ blockquote footer, blockquote small, blockquote .small {
 }
 
 .commerce-show-logo {
-    width: 150px
-
+    width: 150px;
+    margin-bottom: 50px;
 }
+
+#map {
+    height: 350px;
+    width: 100%;
+    border-radius: 5px;
+}
+

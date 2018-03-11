@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Commerces::RegistrationsController < Devise::RegistrationsController
-  include Accessible
 
   def show
     @commerce = Commerce.find(params[:commerce_id])
@@ -25,7 +24,7 @@ class Commerces::RegistrationsController < Devise::RegistrationsController
   def update_resource(resource, params)
     resource.update_without_password(params)
   end
-
+ 
 
 
   private

@@ -1,4 +1,4 @@
-
+<section class="home" id="home">
 <div class="container">
     
 
@@ -10,10 +10,14 @@
         </div>
         <div class="col-md-6 col-sm-6 col-xs-6">
             <h3 class="product-title"><%= product.title %></h3>
+            <h5 class="product-title"><p>Avant le</p> <%= product.last_date %></h5>
         </div>
         <div class="col-md-2 col-sm-4 col-xs-4">
             <p class="price">
                 <span class="product-price"><%= number_to_currency(product.price, unit: "") %> DH</span>
+            </p>
+            <p class="price">
+                <span class="product-price" style="color:#223d61"><s><%= number_to_currency(product.real_price, unit: "") %> DH</s></span>
             </p>
         </div>
         <div class="col-md-2 col-sm-4 col-xs-4">
@@ -26,7 +30,7 @@
 <% end %>  
 
 </div>
-
+</section>
 
         <section id="counter" class="counter">
             <div class="container-fluid">

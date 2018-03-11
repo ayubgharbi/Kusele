@@ -1,39 +1,63 @@
 <div class="container">
 
 <div class="row">
-    <div class="col-md-9">  
-    <% if commerce_signed_in? %>
-    <%= link_to 'New product', new_commerce_product_path(@commerce) %>
-<% end %>
+    <div class="col-md-8">  
+ 
 <%= image_tag @commerce.logo.url(:large), class: "commerce-show-logo" %>
-<div class="rating">
-    <div class="star-rating" data-score= <%= @avg_review %> ></div>
-    <em class="reviews_length"><%= "(#{@reviews.length})" %></em>
-</div>
+
+
 <% @products.each do |product| %>   
-    <div class="product">
+<div class="product">
     <div class="row">
         <div class="col-md-2 col-sm-2 col-xs-2">
             <%= image_tag product.image.url(:large), class: "product-image" %>
         </div>
         <div class="col-md-6 col-sm-6 col-xs-6">
             <h3 class="product-title"><%= product.title %></h3>
+            <h5 class="product-title"><p>Avant le</p> <%= product.last_date %></h5>
         </div>
         <div class="col-md-2 col-sm-4 col-xs-4">
             <p class="price">
                 <span class="product-price"><%= number_to_currency(product.price, unit: "") %> DH</span>
             </p>
+            <p class="price">
+                <span class="product-price" style="color:#223d61"><s><%= number_to_currency(product.real_price, unit: "") %> DH</s></span>
+            </p>
         </div>
         <div class="col-md-2 col-sm-4 col-xs-4">
-            
+ 
         </div>
     </div>
 </div> 
-<% end %>   
+<% end %>     
+        
+           <% if commerce_signed_in? %>
+    <%= link_to 'New product', new_commerce_product_path(@commerce) %>
+<% end %>
+    </div>
+    <div class="col-md-4">
+        <div id="map"></div>
+      <script>
+        function initMap() {
+          var uluru = {lat: <%= @commerce.latitude %>, lng: <%= @commerce.longitude %> };
+          var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 15,
+            center: uluru
+          });
+          var marker = new google.maps.Marker({
+            position: uluru,
+            map: map
+          });
+        }
+      </script>
+      <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXYYNHt5bguptWTF27gBIdRe4Vmz05rUw&callback=initMap">
+</script>
         
     </div>
-    <div class="col-md-3">
-        <% if @reviews.blank? %>
+</div>
+
+<% if @reviews.blank? %>
             <h3>No reviews just yet, would you like to add the first!</h3>
             <%= link_to "Write a review", new_commerce_review_path(@commerce) %>
         <% else %>
@@ -44,9 +68,6 @@
                 </div>
             <% end %>
         <% end %>
-    </div>
-</div>
-
 
 </div>
 

@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
   def index
   	@commerces = Commerce.all
-  	@products = Product.last(4)
+  	@products = Product.all.order("created_at DESC")
   end
 end

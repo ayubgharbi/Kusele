@@ -25,7 +25,7 @@
                                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
                                         <ul class="nav navbar-nav navbar-left">
-                                            <li><%= link_to "Home", root_path %></li>
+                                            <li><a href="#home">Annonces</a></li>
                                             <li class="hide"><%= link_to "Shops", commerces_path %></li>
                                             <li class="hide"><a href="#service">What we do?</a></li>
                                         </ul>
@@ -38,8 +38,9 @@
                                                 <li><%= link_to "edit account", edit_user_registration_path %></li>
                                                 <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li> 
                                                 <% end %>
-                                                <% if commerce_signed_in? %>
-                                                <li><%= link_to "edit commerce", edit_commerce_registration_path %></li>
+                                                <% if commerce_signed_in? && !user_signed_in? %>
+                                                <li><%= link_to "my shop", commerce_path(current_commerce) %></li>
+                                                <li><%= link_to "edit shop", edit_commerce_registration_path %></li>
                                                 <li><%= link_to "Logout", destroy_commerce_session_path, method: :delete %></li> 
                                                 <% end %>
                                             <% end %>

@@ -7,9 +7,7 @@ Rails.application.routes.draw do
 
   get 'authentication/index'
 
-  devise_for :commerces, path: 'commerces', controllers: { sessions: 'commerces/sessions', registrations: 'commerces/registrations' } do 
-  	resources :products
-  end 	
+  devise_for :commerces, path: 'commerces', controllers: { sessions: 'commerces/sessions', registrations: 'commerces/registrations' } 
 
   resources :commerces do 
   	resources :products

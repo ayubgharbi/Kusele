@@ -1,69 +1,79 @@
-<h2>Sign up</h2>
+<div class="container">
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :first_name %><br />
-    <%= f.text_field :first_name %>
+    <%= f.text_field :first_name, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
+    <%= f.text_field :last_name, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :commerce_name %><br />
-    <%= f.text_field :commerce_name %>
+    <%= f.text_field :commerce_name, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :address %><br />
-    <%= f.text_field :address %>
+    <%= f.text_field :address, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :phone_number %><br />
-    <%= f.text_field :phone_number %>
+    <%= f.text_field :phone_number, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :register_commerce %><br />
-    <%= f.text_field :register_commerce %>
+    <%= f.text_field :register_commerce, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :latitude %><br />
-    <%= f.text_field :latitude %>
+    <%= f.text_field :latitude, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :longitude %><br />
+    <%= f.text_field :longitude, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= f.label :longitude %><br />
-    <%= f.text_field :longitude %>
+    <%= f.label :logo %><br />
+    <%= f.file_field :logo %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image %><br />
+    <%= f.file_field :image %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Sign up", class: "green-btn" %>
   </div>
 <% end %>
 
-<%= render "commerces/shared/links" %>
+</div>
