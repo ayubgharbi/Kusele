@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180311194642) do
+ActiveRecord::Schema.define(version: 20180312091747) do
 
   create_table "commerces", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 20180311194642) do
     t.decimal "real_price"
     t.datetime "last_date"
     t.integer "quantity"
+    t.boolean "ilimit", default: false
     t.index ["commerce_id"], name: "index_products_on_commerce_id"
   end
 

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'about/index'
+
   get 'register/index'
   get 'login/index'
   get 'welcome/index'

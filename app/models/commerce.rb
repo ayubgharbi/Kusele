@@ -6,7 +6,7 @@ class Commerce < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  validates :first_name, :last_name, :commerce_name, :address, :phone_number, :register_commerce, :logo, presence: true
+  validates :commerce_name, :address, :phone_number, :logo, presence: true
   has_many :products
   has_many :reviews
 

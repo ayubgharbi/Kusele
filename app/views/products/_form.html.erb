@@ -32,6 +32,11 @@
       </div>
 
       <div class="field">
+        <%= f.label :ilimit %>
+        <%= f.check_box :ilimit, class: "exchange_option" %>
+      </div>
+
+      <div class="field">
         <%= f.label :quantity %>
         <%= f.number_field :quantity %>
       </div>
@@ -44,6 +49,8 @@
       <div class="field">
       <%= f.file_field :image %>
        </div>
+
+
 
       <div class="actions">
         <%= f.submit %>
