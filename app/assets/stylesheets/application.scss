@@ -203,7 +203,6 @@ h4 {
 h5 {
     font-size: 1.125rem;
     margin-bottom: 1rem;
-    color:#223d61;
     text-transform: uppercase;
 }
 h6 {
@@ -1167,7 +1166,7 @@ blockquote footer, blockquote small, blockquote .small {
     border-top:1px solid #ddd;
 }
 .copyright_text p{
-    color: #6135b3;
+    color: #3C472F;
     font-size:0.8125rem;
     line-height: 25px;
     padding:40px;
@@ -1175,11 +1174,11 @@ blockquote footer, blockquote small, blockquote .small {
 }
 .copyright_text p i{
     padding:0px 10px;
-    color: #6135b3;
+    color: #3C472F;
 }
 .copyright_text p a{
     padding:0px 10px;
-    color: #6135b3;
+    color: #3C472F;
 }
 
 .footer_socail{
@@ -1453,6 +1452,7 @@ blockquote footer, blockquote small, blockquote .small {
     color: #fff !important;
     background: #6135b3;
     width: 180px;
+    margin-bottom: 40px;
     &:hover {
         background: #7e994c;
         color: #fff;
@@ -1460,8 +1460,11 @@ blockquote footer, blockquote small, blockquote .small {
 }
 
 .commerce-logo {
-    width: 200px;
-    height: 200px;
+    height: 100px;
+    width: 100px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
 }
 
 /*-- gallery --*/
@@ -1668,6 +1671,12 @@ blockquote footer, blockquote small, blockquote .small {
     padding-bottom: 10px;
 }
 
+.btn-add-review{
+    margin-bottom: 30px;
+    display: inherit;
+    padding-bottom: 10px;
+}
+
 .logo-pa {
     font-size: 30px;
     color: #fff;
@@ -1690,4 +1699,150 @@ blockquote footer, blockquote small, blockquote .small {
 .home-logo {
     width: 150px;
     height: 150px;
+}
+
+.helv-font {
+    font-family: "HelveticaRoundedLTStd-Bd";
+}
+
+.green {
+    color: $green;
+}
+
+
+/* Slider */
+
+.slick-slider {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+}
+.slick-list {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    margin: 0;
+    padding: 0;
+
+    &:focus {
+        outline: none;
+    }
+
+    &.dragging {
+        cursor: pointer;
+        cursor: hand;
+    }
+}
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.slick-track {
+    position: relative;
+    left: 0;
+    top: 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+
+    .slick-loading & {
+        visibility: hidden;
+    }
+}
+.slick-slide {
+    float: left;
+    height: 100%;
+    min-height: 1px;
+    [dir="rtl"] & {
+        float: right;
+    }
+    img {
+        display: block;
+    }
+    &.slick-loading img {
+        display: none;
+    }
+
+    display: none;
+
+    &.dragging img {
+        pointer-events: none;
+    }
+
+    .slick-initialized & {
+        display: block;
+    }
+
+    .slick-loading & {
+        visibility: hidden;
+    }
+
+    .slick-vertical & {
+        display: block;
+        height: auto;
+        border: 1px solid transparent;
+    }
+}
+.slick-arrow.slick-hidden {
+    display: none;
+}
+
+.autoplay {
+    button {
+        display: none !important;
+    }
+}
+
+.commerce {
+    a {
+        &:hover {
+            background: transparent;
+        };
+    }
+}
+
+.footer-policy {
+    margin-top: 50px;
+    height: 60px;
+}
+
+#reviews {
+    .review {
+        margin-bottom: 20px;
+    }
+    .review-user {
+        color: $green;
+        font-weight: bold;
+    }
+    .review-comment {
+        font-size: 22px;
+    }
+    .add-review {
+        margin-bottom: 20px;
+        color: #223d61;
+    }
 }

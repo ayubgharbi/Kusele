@@ -8,13 +8,45 @@
             <h1 class="welcome-kusele"><%= image_tag "logo.png", class: "home-logo" %> kusele</h1>
             <%= image_tag "googleplay.png", class: "android-image2" %>
             <%= image_tag "appstore.png", class: "android-image2" %>
-            <p class="prochaine" style="font-family: HelveticaRoundedLTStd-Bd">prochainement</p>
+            <p class="prochaine" style="font-family: HelveticaRoundedLTStd-Bd">prochainement <i class="fa fa-spinner"></i></p>
         </div>
-        
     </div>
 </div>
 </section>
 
+<section class="about" id="about">
+    <div class="container">
+    <div class="main_service_area sections text-center">
+        <div class="head_title text-center">
+            <h2 style="color: #3C472F">À propos</h2>
+        </div>
+        <h6 class="text-center">Quest-ce que <span class="helv-font">kusele</span>? <span class="helv-font green">kusele</span> est une solution qui permettra aux différents commerces gastronomiques (supermarchés, restaurants, boulangeries) de publier des offres pour liquider son stock.</h6>    
+    </div>
+    </div>
+</section>
+
+<section class="commerce" id="shop">
+    <div class="container">
+        <div class="main_service_area sections text-center">
+            <div class="head_title text-center">
+                <h2 style="color: #3C472F">Nos commerces</h2>
+            </div>
+            <% @commerces.each_slice(6) do |commerces| %>
+              <div class="row">
+                <% commerces.each do |commerce| %>  
+                  <div class="col-md-2 col-sm-2">
+                    <div class="row">
+                      <%= link_to commerce do %>
+                          <%= image_tag commerce.logo.url(:large), class: "commerce-logo" %>
+                      <% end %> 
+                    </div>
+                  </div>  
+                <% end %>
+              </div>  
+            <% end %>
+        </div>
+    </div>
+</section>
 
 
 <section class="home" id="home">
@@ -29,13 +61,13 @@
                         <div class="col-md-2 col-sm-2 col-xs-2">
                             <%= image_tag product.image.url(:large), class: "product-image" %>
                         </div>
-                        <div class="col-md-4 col-sm-6 col-xs-6">
+                        <div class="col-md-4 col-sm-4 col-xs-4">
                             <h3 class="product-title"><%= product.title %></h3>
                         </div>
-                        <div class="col-md-2 col-sm-6 col-xs-6">
+                        <div class="col-md-2 col-sm-2 col-xs-2">
                             <h3 class="product-quantity text-center"><%= product.quantity %><br> <p>Unités</p></h3>
                         </div>
-                        <div class="col-md-2 col-sm-4 col-xs-4">
+                        <div class="col-md-2 col-sm-2 col-xs-2">
                             <p class="price">
                                 <span class="product-price" style="color:#223d61"><s><%= number_to_currency(product.real_price, unit: "") %> DH</s></span>
                             </p>
@@ -43,7 +75,7 @@
                                 <span class="product-price"><%= number_to_currency(product.price, unit: "") %> DH</span>
                             </p>
                         </div>
-                        <div class="col-md-2 col-sm-4 col-xs-4">
+                        <div class="col-md-2 col-sm-2 col-xs-2">
                             <%= link_to product.commerce do %>
                                 <%= image_tag product.commerce.logo.url(:large), class: "product-commerce-logo" %>
                             <% end %>

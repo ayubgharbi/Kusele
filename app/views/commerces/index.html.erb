@@ -1,22 +1,19 @@
-<div class="container">
-<h2>Shops</h2>
-<% @commerces.each_slice(3) do |commerces| %>
-  <div class="row">
-    <% commerces.each do |commerce| %>  
-      <div class="col-md-4">
+<section class="commerce">
+  <div class="container">
+    <h2>Shops</h2>
+      <% @commerces.each_slice(6) do |commerces| %>
         <div class="row">
-          <%= link_to commerce do %>
-            <div class="grid effect-apollo"> 
-              <%= image_tag commerce.logo.url(:large), class: "commerce-logo" %>
-              <div class="figcaption">
-                <p style="font-size: 20px;"><%= commerce.commerce_name %></p>
-              </div> 
-            </div> 
-          <% end %> 
-          <p style="font-size: 20px;"><%= commerce.commerce_name %></p>
-        </div>
-      </div>  
-    <% end %>
-  </div>  
-<% end %>
-</div>
+          <% commerces.each do |commerce| %>  
+            <div class="col-md-2 col-sm-2">
+              <div class="row">
+                <%= link_to commerce do %>
+                  <%= image_tag commerce.logo.url(:large), class: "commerce-logo" %>
+                <% end %> 
+              </div>
+            </div>  
+          <% end %>
+        </div>  
+      <% end %>
+    </div>
+  </div>
+</section>

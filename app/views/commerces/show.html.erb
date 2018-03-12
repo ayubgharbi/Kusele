@@ -1,85 +1,104 @@
 <div class="container">
-
-<div class="row">
+  <div class="row">
     <div class="col-md-8">  
-<div class="commerce-background" style="background: url(<%= @commerce.image.url(:large) %>); border: 1px solid #ccc">
-<%= image_tag @commerce.logo.url(:large), class: "commerce-show-logo" %>
-</div>
-
-<% if commerce_signed_in? %>
-    <%= link_to new_commerce_product_path(@commerce), class: "bt btn-product" do %>
-    <%= image_tag "149171.svg", class: "link-svg" %>
-      Nouveau produit
-    <% end %>
-<% end %>
-
-<% @products.each do |product| %>   
-<div class="product">
-    <div class="row">
-        <div class="col-md-2 col-sm-2 col-xs-2">
+      <div class="commerce-background" style="background: url(<%= @commerce.image.url(:large) %>); border: 1px solid #ccc">
+        <%= image_tag @commerce.logo.url(:large), class: "commerce-show-logo" %>
+      </div>
+      <% if commerce_signed_in? %>
+          <%= link_to new_commerce_product_path(@commerce), class: "bt btn-product" do %>
+          <%= image_tag "149171.svg", class: "link-svg" %>
+            Nouveau produit
+          <% end %>
+      <% end %>
+      <% @products.each do |product| %>   
+      <div class="product">
+        <div class="row">
+          <div class="col-md-2 col-sm-2 col-xs-2">
             <%= image_tag product.image.url(:large), class: "product-image" %>
-        </div>
-        <div class="col-md-4 col-sm-6 col-xs-6">
+          </div>
+          <div class="col-md-4 col-sm-4 col-xs-4">
             <h3 class="product-title"><%= product.title %></h3>
-        </div>
-        <div class="col-md-2 col-sm-6 col-xs-6">
+          </div>
+          <div class="col-md-2 col-sm-2 col-xs-2">
             <h3 class="product-quantity text-center"><%= product.quantity %><br> <p>Unités</p></h3>
-        </div>
-        <div class="col-md-2"></div>
-        <div class="col-md-2 col-sm-4 col-xs-4">
-            <p class="price">
+          </div>
+          <div class="col-md-2"></div>
+            <div class="col-md-2 col-sm-2 col-xs-2">
+              <p class="price">
                 <span class="product-price" style="color:#223d61"><s><%= number_to_currency(product.real_price, unit: "") %> DH</s></span>
-            </p>
-            <p class="price">
+              </p>
+              <p class="price">
                 <span class="product-price"><%= number_to_currency(product.price, unit: "") %> DH</span>
-            </p>
-        </div>
-    </div>
-    <% if current_commerce && @commerce.id == current_commerce.id %>
-    <%= link_to 'éditer', edit_commerce_product_path(@commerce, product), class: "edit-btn bt" %>
-    <%= link_to "éliminer", commerce_product_path(@commerce, product), method: :delete, data: { confirm: "Are you sure?" }, class: "delete-btn bt" %>
-    <% end %>
-</div> 
-<% end %>     
-        
+              </p>
+            </div>
+          </div>
+          <% if current_commerce && @commerce.id == current_commerce.id %>
+            <%= link_to 'éditer', edit_commerce_product_path(@commerce, product), class: "edit-btn bt" %>
+            <%= link_to "éliminer", commerce_product_path(@commerce, product), method: :delete, data: { confirm: "Are you sure?" }, class: "delete-btn bt" %>
+          <% end %>
+        </div> 
+      <% end %>
 
-    </div>
-    <div class="col-md-4">
-        <div id="map"></div>
-      <script>
-        function initMap() {
-          var uluru = {lat: <%= @commerce.latitude %>, lng: <%= @commerce.longitude %> };
-          var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 13,
-            center: uluru
-          });
-          var marker = new google.maps.Marker({
-            position: uluru,
-            map: map
-          });
-        }
-      </script>
-      <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXYYNHt5bguptWTF27gBIdRe4Vmz05rUw&callback=initMap">
-</script>
-      <h5><i class="fa fa-map-marker"></i> <%= @commerce.address %></h5>
-      <h5><i class="fa fa-phone"></i> <%= @commerce.phone_number %></h5>
-    </div>
-</div>
 
+
+
+      <div id="reviews">
+        <h5>Commentaires</h5>
+        <% @reviews.each do |review| %>
+        <div class="review">
+          <div class="row">
+            <div class="col-md-3 col-sm-3 col-xs-3">
+              <h6 class="review-date"><%= review.created_at.to_date %></h6>
+              <p class="review-user"><%= review.user.first_name %></p>
+            </div>
+            <div class="col-md-9 col-sm-3 col-xs-3">
+              <div class="star-rating" data-score= <%= @avg_review %> ></div>
+              <em class="review-comment"><%= review.comment %></em>
+            </div>
+          </div>
+          </div>
+        <% end %> 
+          <h6 class="add-review">
+          Ecriver un commentaire</h6>
+          
+        <%= render "reviews/new" %>
+      </div>
 
     
+    </div>
+    <div class="col-md-4">
+      <div id="map"></div>
+    <script>
+      function initMap() {
+        var uluru = {lat: <%= @commerce.latitude %>, lng: <%= @commerce.longitude %> };
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 13,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXYYNHt5bguptWTF27gBIdRe4Vmz05rUw&callback=initMap">
+    </script>
+    <h5><i class="fa fa-map-marker"></i> <%= @commerce.address %></h5>
+    <h5><i class="fa fa-phone"></i> <%= @commerce.phone_number %></h5>
 
+
+          
+  </div>
+</div>
 </div>
 
 <script>
     $('.star-rating').raty({
-      path: '/assets/',
+      path: '/assets',
       readOnly: true,
       score: function() {
         return $(this).attr('data-score');
       }
     });
 </script>
-
-

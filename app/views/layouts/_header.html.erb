@@ -1,130 +1,103 @@
 <% unless current_page?(root_path) %>
-
 <header id="main_menu" class="header navbar-fixed">            
-            <div class="main_menu_bg">
-                <div class="container">
-                    <div class="row">
-                        <div class="nave_menu">
-                            <nav class="navbar navbar-default" id="navmenu">
-                                <div class="container-fluid">
-                                    <!-- Brand and toggle get grouped for better mobile display -->
-                                    <div class="navbar-header">
-                                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                                            <span class="sr-only">Toggle navigation</span>
-                                            <span class="icon-bar"></span>
-                                            <span class="icon-bar"></span>
-                                            <span class="icon-bar"></span>
-                                        </button>
-                                        <%= link_to root_path, class: "navbar-brand" do %>
-                                        	<p class="logo-pa"><%= image_tag "logo.png", class: "logo" %>
-                                            </p>
+    <div class="main_menu_bg">
+        <div class="container">
+            <div class="row">
+                <div class="nave_menu">
+                    <nav class="navbar navbar-default" id="navmenu">
+                        <div class="container-fluid">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <%= link_to root_path, class: "navbar-brand" do %>
+                                    <p class="logo-pa"><%= image_tag "logo.png", class: "logo" %>
+                                            </p>            
+                                <% end %>
+                            </div>
+                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                <ul class="nav navbar-nav navbar-left">
+                                    <li><%= link_to "Acceuil", root_path %></li>
+                                    <li><a href="#about">À propos</a></li>
+                                    <li><%= link_to "Annonces", root_path %></li>
+                                    <li><%= link_to "Shops", commerces_path %></li>
+                                </ul>
+                                <ul class="nav navbar-nav navbar-right">
+                                    <% if !commerce_signed_in? && !user_signed_in? %>
+                                        <li><%= link_to "s'inscrire", register_index_path %></li>
+                                        <li><%= link_to "se connecter", login_index_path %></li>
+                                    <% else %>
+                                        <% if user_signed_in? %>
+                                            <li><%= link_to "edit account", edit_user_registration_path %></li>
+                                            <li><%= link_to "se déconnecter", destroy_user_session_path, method: :delete %></li> 
                                         <% end %>
-                                    </div>
-
-                                    <!-- Collect the nav links, forms, and other content for toggling -->
-
-
-
-                                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-                                        <ul class="nav navbar-nav navbar-left">
-                                            <li><%= link_to "Acceuil", root_path %></li>
-                                            <li><%= link_to "Annonces", root_path %></li>
-                                            <li class="hide"><%= link_to "Shops", commerces_path %></li>
-                                            <li class="hide"><a href="#service">What we do?</a></li>
-                                        </ul>
-                                        <ul class="nav navbar-nav navbar-right">
-                                            <% if !commerce_signed_in? && !user_signed_in? %>
-                                                <li><%= link_to "s'inscrire", register_index_path %></li>
-                                                <li><%= link_to "se connecter", login_index_path %></li>
-                                            <% else %>
-                                                <% if user_signed_in? %>
-                                                <li><%= link_to "edit account", edit_user_registration_path %></li>
-                                                <li><%= link_to "se déconnecter", destroy_user_session_path, method: :delete %></li> 
-                                                <% end %>
-                                                <% if commerce_signed_in? && !user_signed_in? %>
-                                                <li><%= link_to "mon shop", commerce_path(current_commerce) %></li>
-                                                <li><%= link_to "edit shop", edit_commerce_registration_path %></li>
-                                                <li><%= link_to "se déconnecter", destroy_commerce_session_path, method: :delete %></li> 
-                                                <% end %>
-                                            <% end %>
-                                            
-                                        </ul>
-                                    </div>
-
-                                </div>
-                            </nav>
-                        </div>  
-                    </div>
-
-                </div>
-
+                                        <% if commerce_signed_in? && !user_signed_in? %>
+                                            <li><%= link_to "mon shop", commerce_path(current_commerce) %></li>
+                                            <li><%= link_to "edit shop", edit_commerce_registration_path %></li>
+                                            <li><%= link_to "se déconnecter", destroy_commerce_session_path, method: :delete %></li> 
+                                        <% end %>
+                                    <% end %>    
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>  
             </div>
+        </div>
+    </div>
 </header> 
-
 <% else %>
-
 <header id="main_menu" class="header navbar-fixed">            
-            <div class="main_menu_bg">
-                <div class="container">
-                    <div class="row">
-                        <div class="nave_menu">
-                            <nav class="navbar navbar-default" id="navmenu">
-                                <div class="container-fluid">
-                                    <!-- Brand and toggle get grouped for better mobile display -->
-                                    <div class="navbar-header">
-                                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                                            <span class="sr-only">Toggle navigation</span>
-                                            <span class="icon-bar"></span>
-                                            <span class="icon-bar"></span>
-                                            <span class="icon-bar"></span>
-                                        </button>
-                                        <%= link_to root_path, class: "navbar-brand" do %>
-                                            <p class="logo-pa"><%= image_tag "logo.png", class: "logo" %>
-                                            </p>
+    <div class="main_menu_bg">
+        <div class="container">
+            <div class="row">
+                <div class="nave_menu">
+                    <nav class="navbar navbar-default" id="navmenu">
+                        <div class="container-fluid">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                </button>
+                                <%= link_to root_path, class: "navbar-brand" do %>
+                                    <p class="logo-pa"><%= image_tag "logo.png", class: "logo" %></p>
+                                <% end %>
+                            </div>
+                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                <ul class="nav navbar-nav navbar-left">
+                                    <li><a href="#android">Acceuil</a></li>
+                                    <li><a href="#about">À propos</a></li>
+                                    <li><a href="#shop">Shops</a></li>
+                                    <li><a href="#home">Annonces</a></li>
+                                    <li class="hide"><a href="#service">What we do?</a></li>
+                                </ul>
+                                <ul class="nav navbar-nav navbar-right">
+                                    <% if !commerce_signed_in? && !user_signed_in? %>
+                                        <li><%= link_to "s'inscrire", register_index_path %></li>
+                                        <li><%= link_to "se connecter", login_index_path %></li>
+                                    <% else %>
+                                        <% if user_signed_in? %>
+                                            <li><%= link_to "edit account", edit_user_registration_path %></li>
+                                            <li><%= link_to "se déconnecter", destroy_user_session_path, method: :delete %></li> 
                                         <% end %>
-                                    </div>
-
-                                    <!-- Collect the nav links, forms, and other content for toggling -->
-
-
-
-                                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-                                        <ul class="nav navbar-nav navbar-left">
-                                            <li><a href="#android">Acceuil</a></li>
-                                            <li><a href="#service">Services</a></li>
-                                            <li><a href="#home">Annonces</a></li>
-                                            <li class="hide"><%= link_to "Shops", commerces_path %></li>
-                                            <li class="hide"><a href="#service">What we do?</a></li>
-                                        </ul>
-                                        <ul class="nav navbar-nav navbar-right">
-                                            <% if !commerce_signed_in? && !user_signed_in? %>
-                                                <li><%= link_to "s'inscrire", register_index_path %></li>
-                                                <li><%= link_to "se connecter", login_index_path %></li>
-                                            <% else %>
-                                                <% if user_signed_in? %>
-                                                <li><%= link_to "edit account", edit_user_registration_path %></li>
-                                                <li><%= link_to "se déconnecter", destroy_user_session_path, method: :delete %></li> 
-                                                <% end %>
-                                                <% if commerce_signed_in? && !user_signed_in? %>
-                                                <li><%= link_to "mon shop", commerce_path(current_commerce) %></li>
-                                                <li><%= link_to "edit shop", edit_commerce_registration_path %></li>
-                                                <li><%= link_to "se déconnecter", destroy_commerce_session_path, method: :delete %></li> 
-                                                <% end %>
-                                            <% end %>
-                                            
-                                        </ul>
-                                    </div>
-
-                                </div>
-                            </nav>
-                        </div>  
-                    </div>
-
-                </div>
-
+                                        <% if commerce_signed_in? && !user_signed_in? %>
+                                            <li><%= link_to "mon shop", commerce_path(current_commerce) %></li>
+                                            <li><%= link_to "edit shop", edit_commerce_registration_path %></li>
+                                            <li><%= link_to "se déconnecter", destroy_commerce_session_path, method: :delete %></li> 
+                                        <% end %>
+                                    <% end %>       
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>  
             </div>
+        </div>
+    </div>
 </header> 
-
 <% end %>

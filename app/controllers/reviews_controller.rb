@@ -47,7 +47,7 @@ class ReviewsController < ApplicationController
   private
 
     def set_commerce 
-      @commerce = Commerce.find(params[:commerce_id])
+      @commerce = Commerce.friendly.find(params[:commerce_id])
     end 
     def set_review
       @review = Review.find(params[:id])
