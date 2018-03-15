@@ -9,6 +9,7 @@ class CommercesController < ApplicationController
 		@products = @commerce.products
 		@reviews = Review.where(commerce_id: @commerce.id).order("created_at DESC")
 		@review = Review.new
+		@commerces = Commerce.all
 
 		if @reviews.blank?
 			@avg_review = 0

@@ -1465,6 +1465,7 @@ blockquote footer, blockquote small, blockquote .small {
     border-radius: 5px;
     border: 1px solid #ccc;
     margin-right: 10px;
+    margin-bottom: 10px;
 }
 
 /*-- gallery --*/
@@ -1845,4 +1846,10 @@ blockquote footer, blockquote small, blockquote .small {
         margin-bottom: 20px;
         color: #223d61;
     }
+}
+
+.product-discount {
+    font-weight: bold;
+    color: #f5c239;
+    font-size: 18px;
 }
