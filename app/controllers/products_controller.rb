@@ -3,6 +3,11 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index
+    if params[:search].present?
+        @commerces = Commerce.near(params[:search], 2, units: :km)
+    else
+        @commerces = Commerce.all
+    end
   end 
 
   def show

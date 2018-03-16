@@ -1,3 +1,16 @@
+<section>
+    <div class="container">
+        <h4 style="color: #3C472F">Trouvez des Annonces proche de vous</h4>
+        <%= form_tag products_path, :method => :get do %>
+          <p>
+            <%= text_field_tag :search, params[:search] %>
+            <%= submit_tag "Search Near", :name => nil, class: "green-btn" %>
+          </p>
+        <% end %>    
+    </div>
+</section>
+
+
 
 <section id="android" class="android text-center">
 <div class="container">

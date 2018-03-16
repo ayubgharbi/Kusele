@@ -1,4 +1,19 @@
 <% provide(:title, "shops") %>
+
+<section>
+    <div class="container">
+        <h4 style="color: #3C472F">Trouvez des Shops proche de vous</h4>
+        <%= form_tag commerces_path, :method => :get do %>
+          <p>
+            <%= text_field_tag :search, params[:search] %>
+            <%= submit_tag "Search Near", :name => nil, class: "green-btn" %>
+          </p>
+        <% end %>    
+    </div>
+</section>
+
+
+
 <section class="commerce">
   <div class="container">
     <h2>Shops</h2>
@@ -9,6 +24,9 @@
               <div class="row">
                 <%= link_to commerce do %>
                   <%= image_tag commerce.logo.url(:large), class: "commerce-logo" %>
+                  <% if params[:search].present? %>
+                    (<%= commerce.distance.round(2) %> km)
+                  <% end %>
                 <% end %> 
               </div>
             </div>  

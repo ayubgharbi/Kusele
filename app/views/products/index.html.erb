@@ -1,0 +1,62 @@
+    <section>
+    <div class="container">
+        <h4 style="color: #3C472F">Trouvez des Annonces proche de vous</h4>
+        <%= form_tag products_path, :method => :get do %>
+          <p>
+            <%= text_field_tag :search, params[:search] %>
+            <%= submit_tag "Search Near", :name => nil, class: "green-btn" %>
+          </p>
+        <% end %>    
+    </div>
+</section>
+
+    <div class="container"> 
+            <div class="head_title text-center">
+                <% if params[:search].present? %>
+                    <h2 style="color: #3C472F">Annonces proche de <span style="color: #223d61"><%= params[:search] %></span></h2>
+                <% else %>
+                    <h2 style="color: #3C472F">Toutes les Annonces  </span></h2>
+                <% end %>
+            </div>
+
+            <% @commerces.each do |commerce| %>
+                <% commerce.products.each do |product| %>   
+                    <div class="product">
+                        <div class="row">
+                            <div class="col-md-2 col-sm-2 col-xs-2">
+                                <%= image_tag product.image.url(:large), class: "product-image" %>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-4">
+                                <h3 class="product-title"><%= product.title %></h3>
+                                <h6>Avant le <%= product.last_date.strftime("%m/%d/%Y à %I:%M%p") %></h6>
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-xs-2">
+                                <% if product.ilimit == true %>
+                                  <h3 class="product-quantity text-center">ilimité</p></h3>
+                                <% else %>
+                                  <h3 class="product-quantity text-center"><%= product.quantity %><br> <p>Unités</p></h3>
+                                <% end %>
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-xs-2">
+                                <p class="price">
+                                    <span class="product-price" style="color:#223d61"><s><%= number_to_currency(product.real_price, unit: "") %> DH</s></span>
+                                </p>
+                                <p class="price">
+                                    <span class="product-price"><%= number_to_currency(product.price, unit: "") %> DH</span>
+                                </p>
+                                <p class="product-discount">- <%= number_to_percentage((product.price * 100) / product.real_price, precision: 0) %></p>
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-xs-2">
+                                <%= link_to product.commerce do %>
+                                    <%= image_tag product.commerce.logo.url(:large), class: "product-commerce-logo" %>
+                                <% end %>
+                            </div>
+                        </div>
+                    </div> 
+                <% end %> 
+            <% end %> 
+            <% if params[:search] %>
+                <%= link_to "Toutes les annonces", products_path, class: "bt" %>
+            <% end %>
+    </div>
+

@@ -1,7 +1,11 @@
 class CommercesController < ApplicationController
 	
 	def index
-		@commerces = Commerce.all
+		if params[:search].present?
+    		@commerces = Commerce.near(params[:search], 2, units: :km)
+		else
+		    @commerces = Commerce.all
+		end
 	end
 
 	def show
